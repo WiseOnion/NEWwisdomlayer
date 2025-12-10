@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block access to assets that don't need indexing
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /html/agreement-forms/
+
+# Allow access to important pages
+Allow: /html/projects.html
+Allow: /html/privacy-policy.html
+
+# Sitemap
+Sitemap: https://wisdomlayers.com/sitemap.xml

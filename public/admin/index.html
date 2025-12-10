@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WisdomLayers - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <style>
+        /* Font styling to match main site */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'kern' 1, 'liga' 1;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-feature-settings: 'kern' 1, 'liga' 1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .slide-in { animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+
+        /* Image preview styling */
+        .image-preview {
+            position: relative;
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .image-preview.dragover {
+            border-color: #0d9488;
+            background-color: #f0fdfa;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Modal styling to match site */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Form styling improvements */
+        .form-section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-section h4 {
+            color: #0f172a;
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 1.125rem;
+        }
+
+        /* Gallery sections styling */
+        .gallery-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .gallery-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .gallery-section-title {
+            font-weight: 600;
+            color: #374151;
+            font-size: 1.1rem;
+        }
+
+        .gallery-section input[type="text"] {
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            width: 200px;
+            transition: border-color 0.2s;
+        }
+
+        .gallery-section input[type="text"]:focus {
+            outline: none;
+            border-color: #0d9488;
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+
+        /* Project card improvements */
+        .project-card-admin {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .project-card-admin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #0d9488;
+            border: 2px solid #0d9488;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #0d9488;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Status badges */
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-live {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-in-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-teal-900 relative overflow-hidden">
+        <!-- Animated Background Shapes -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-teal-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-2xl w-full max-w-md relative z-10">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <img src="../../assets/images/Logo.png" alt="WisdomLayers Logo" class="h-10 w-10">
+                    <h1 class="text-3xl font-bold bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">
+                        WisdomLayers
+                    </h1>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-900 mb-2">Admin Panel</h2>
+                <p class="text-gray-600">Portfolio Management System</p>
+            </div>
+
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                    <input type="text" id="username" required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="password" required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-all">
+                </div>
+
+                <button type="submit" class="w-full btn-primary">
+                    Sign In
+                </button>
+            </form>
+
+            <div id="loginError" class="mt-4 text-red-600 text-sm text-center hidden"></div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="hidden min-h-screen bg-gray-50">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200" style="backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); background-color: rgba(255, 255, 255, 0.95);">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center gap-3">
+                        <img src="../../assets/images/Logo.png" alt="WisdomLayers Logo" class="h-8 w-8">
+                        <h1 class="text-xl font-bold bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">
+                            WisdomLayers Admin
+                        </h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span id="userInfo" class="text-sm text-gray-600 font-medium"></span>
+                        <button id="logoutBtn" class="text-sm text-gray-600 hover:text-teal-600 transition-colors font-medium">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Action Buttons -->
+            <div class="mb-12 flex justify-between items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-2">Projects</h2>
+                    <p class="text-gray-600">Manage your portfolio projects and content</p>
+                </div>
+                <button id="addProjectBtn" class="btn-primary flex items-center gap-2">
+                    <i data-lucide="plus" class="w-5 h-5"></i>
+                    Add Project
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be loaded here -->
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="text-center py-16">
+                <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-teal-600 mx-auto"></div>
+                <p class="mt-6 text-gray-600 text-lg">Loading projects...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="flex items-center justify-between p-6 border-b">
+                <h3 id="modalTitle" class="text-xl font-semibold text-gray-900">Add Project</h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <form id="projectForm" class="p-6 space-y-6">
+                <!-- Basic Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Project ID *</label>
+                        <input type="text" id="projectId" name="id" required
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        <p class="text-xs text-gray-500 mt-1">Unique identifier (e.g., "my-project")</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Project Title *</label>
+                        <input type="text" id="projectTitle" name="title" required
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                        <select id="projectStatus" name="status"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <option value="in-progress">In Progress</option>
+                            <option value="live">Live</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tagline</label>
+                    <input type="text" id="projectTagline" name="tagline"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
+                    <textarea id="projectDescription" name="description" rows="4" required
+                              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Live URL</label>
+                    <input type="url" id="projectLink" name="link"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+
+                <!-- Problem & Solution -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Problem</label>
+                        <textarea id="projectProblem" name="problem" rows="3"
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Solution</label>
+                        <textarea id="projectSolution" name="solution" rows="3"
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                    </div>
+                </div>
+
+                <!-- Arrays -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Technologies (comma-separated)</label>
+                    <input type="text" id="projectTech" name="tech"
+                           placeholder="HTML, CSS, JavaScript, React"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Features (one per line)</label>
+                    <textarea id="projectFeatures" name="features" rows="4"
+                              placeholder="Feature 1&#10;Feature 2&#10;Feature 3"
+                              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Results (one per line)</label>
+                    <textarea id="projectResults" name="results" rows="4"
+                              placeholder="Result 1&#10;Result 2&#10;Result 3"
+                              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                </div>
+
+                <!-- Testimonial -->
+                <div class="border-t pt-6">
+                    <h4 class="text-lg font-medium text-gray-900 mb-4">Testimonial</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Client Name</label>
+                            <input type="text" id="testimonialAuthor" name="testimonialAuthor"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Client Type</label>
+                            <input type="text" id="testimonialType" name="testimonialType" placeholder="Therapy Practice"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Testimonial Text</label>
+                        <textarea id="testimonialText" name="testimonialText" rows="3"
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+                    </div>
+                </div>
+
+                <!-- Images -->
+                <div class="form-section">
+                    <h4 class="text-lg font-medium text-gray-900 mb-6">Project Images</h4>
+
+                    <!-- Card Image -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Card Image (300x200 recommended)</label>
+                        <div id="cardImagePreview" class="image-preview">
+                            <input type="file" id="cardImage" name="cardImage" accept="image/*" class="hidden">
+                            <div class="text-gray-500">
+                                <i data-lucide="upload" class="w-8 h-8 mx-auto mb-2"></i>
+                                <p>Click to upload or drag and drop</p>
+                                <p class="text-xs">PNG, JPG, GIF up to 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Screenshot -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Desktop Screenshot (1920x1080 recommended)</label>
+                        <div id="desktopScreenshotPreview" class="image-preview">
+                            <input type="file" id="desktopScreenshot" name="desktopScreenshot" accept="image/*" class="hidden">
+                            <div class="text-gray-500">
+                                <i data-lucide="upload" class="w-8 h-8 mx-auto mb-2"></i>
+                                <p>Click to upload or drag and drop</p>
+                                <p class="text-xs">PNG, JPG, GIF up to 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Screenshot -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Mobile Screenshot (390x844 recommended)</label>
+                        <div id="mobileScreenshotPreview" class="image-preview">
+                            <input type="file" id="mobileScreenshot" name="mobileScreenshot" accept="image/*" class="hidden">
+                            <div class="text-gray-500">
+                                <i data-lucide="upload" class="w-8 h-8 mx-auto mb-2"></i>
+                                <p>Click to upload or drag and drop</p>
+                                <p class="text-xs">PNG, JPG, GIF up to 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Images with Sections -->
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <label class="block text-sm font-medium text-gray-700">Gallery Images (Optional)</label>
+                            <button type="button" id="addGallerySection" class="text-teal-600 hover:text-teal-700 text-sm font-medium flex items-center gap-1">
+                                <i data-lucide="plus" class="w-4 h-4"></i>
+                                Add Section
+                            </button>
+                        </div>
+
+                        <div id="gallerySections" class="space-y-4">
+                            <!-- Gallery sections will be added here -->
+                        </div>
+
+                        <div id="galleryImagesPreview" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                            <div id="addGalleryImage" class="image-preview cursor-pointer">
+                                <div class="text-gray-500">
+                                    <i data-lucide="plus" class="w-8 h-8 mx-auto mb-2"></i>
+                                    <p>Add Image</p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="file" id="galleryImages" name="galleryImages" accept="image/*" multiple class="hidden">
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="flex justify-end space-x-4 border-t pt-6">
+                    <button type="button" id="cancelBtn" class="btn-secondary">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        Save Project
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="admin.js"></script>
+</body>
+</html>

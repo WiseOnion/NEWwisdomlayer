@@ -1,0 +1,29 @@
+{
+  "name": "wisdomlayers-9b72772ed03a77692323b749523ccece776837bc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "node server/seed.js",
+    "migrate": "node server/migrate.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.18.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.0.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

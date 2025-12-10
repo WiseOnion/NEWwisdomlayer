@@ -1,0 +1,1827 @@
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+/* ===================================
+   HERO SECTION LAYOUT IMPROVEMENTS
+   =================================== */
+
+.hero-section {
+    min-height: 100vh;
+    min-height: 100svh; /* Small viewport height for mobile browsers with dynamic bars */
+    padding-top: max(5rem, 10vh); /* Ensure content isn't hidden behind fixed headers */
+    padding-bottom: max(5rem, 10vh);
+    /* Fallback for browsers that don't support svh */
+    @supports not (min-height: 100svh) {
+        min-height: 100vh;
+        padding-top: max(5rem, 8vh);
+        padding-bottom: max(5rem, 8vh);
+    }
+}
+
+/* Mobile hero improvements */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: max(4rem, 12vh);
+        padding-bottom: max(4rem, 12vh);
+        text-align: center;
+    }
+
+    /* Ensure hero content is properly centered on mobile */
+    .hero-section > div {
+        padding: 0 1rem;
+    }
+}
+
+/* ===================================
+   ENHANCED MOBILE MENU SYSTEM
+   =================================== */
+
+/* Mobile Menu Container */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    background: white;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999; /* Menu layer */
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Mobile Menu Header - WITH MENU BUTTON */
+.mobile-header {
+    flex-shrink: 0;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 64px;
+}
+
+/* Mobile Menu Close Button */
+.mobile-menu-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    color: #6b7280;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-close-btn:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.mobile-menu-close-btn:active {
+    background-color: #e5e7eb;
+}
+
+/* Hide the close button in mobile header if it exists */
+#mobileMenuCloseBtn {
+    display: none !important;
+}
+
+/* Mobile Menu Content */
+.mobile-menu-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* Mobile Menu Navigation */
+.mobile-menu-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Mobile Menu Items */
+.mobile-menu-item {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
+    padding: 0.875rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(13, 148, 136, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.mobile-menu-item:hover::before,
+.mobile-menu-item:focus::before {
+    transform: translateX(100%);
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:focus {
+    color: #0d9488;
+    background-color: #f0fdfa;
+    transform: translateX(4px);
+    outline: none;
+}
+
+.mobile-menu-item:active {
+    transform: translateX(2px) scale(0.98);
+}
+
+/* Active state for current page */
+.mobile-menu-item.active {
+    color: #0d9488;
+    background-color: #ccfbf1;
+    font-weight: 600;
+    border-left: 3px solid #0d9488;
+    padding-left: calc(1rem - 3px);
+}
+
+/* Mobile Menu CTA Section */
+.mobile-menu-cta {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.mobile-menu-cta-btn {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+
+.mobile-menu-cta-btn:hover,
+.mobile-menu-cta-btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+    outline: none;
+}
+
+.mobile-menu-cta-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Mobile Menu Backdrop */
+.mobile-menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9998; /* Below menu and button */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.mobile-menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hamburger Menu Icon */
+.mobile-menu-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-icon span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-icon span:nth-child(1) {
+    top: 0;
+}
+
+.mobile-menu-icon span:nth-child(2) {
+    top: 8px;
+}
+
+.mobile-menu-icon span:nth-child(3) {
+    top: 16px;
+}
+
+/* Animated Hamburger to X */
+#mobileMenuBtn.active .mobile-menu-icon span:nth-child(1) {
+    top: 8px;
+    transform: rotate(45deg);
+}
+
+#mobileMenuBtn.active .mobile-menu-icon span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+#mobileMenuBtn.active .mobile-menu-icon span:nth-child(3) {
+    top: 8px;
+    transform: rotate(-45deg);
+}
+
+
+/* Mobile Menu Button - Positioned on Top of Everything */
+#mobileMenuBtn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999999; /* Above absolutely everything */
+    background: white;
+    border: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#mobileMenuBtn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+#mobileMenuBtn:active {
+    transform: scale(0.95);
+}
+
+/* Show only on mobile */
+@media (min-width: 768px) {
+    #mobileMenuBtn {
+        display: none;
+    }
+}
+
+/* Hide main mobile menu button when menu is active */
+.mobile-menu.active ~ #mobileMenuBtn {
+    display: none;
+}
+
+/* Body scroll lock when menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Keep main header visible - mobile menu has its own header */
+
+/* Loading animation for menu items */
+.mobile-menu-item.loading {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideInLeft 0.3s ease forwards;
+}
+
+.mobile-menu-item.loading:nth-child(1) { animation-delay: 0.1s; }
+.mobile-menu-item.loading:nth-child(2) { animation-delay: 0.15s; }
+.mobile-menu-item.loading:nth-child(3) { animation-delay: 0.2s; }
+.mobile-menu-item.loading:nth-child(4) { animation-delay: 0.25s; }
+.mobile-menu-item.loading:nth-child(5) { animation-delay: 0.3s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .mobile-menu {
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    .mobile-menu-item {
+        font-size: 1rem;
+        padding: 0.75rem 0.875rem;
+    }
+}
+
+/* Accessibility improvements */
+.mobile-menu-item:focus-visible {
+    outline: 2px solid #0d9488;
+    outline-offset: 2px;
+}
+
+.mobile-menu-cta-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+#mobileMenuBtn:focus-visible {
+    outline: 2px solid #0d9488;
+    outline-offset: 2px;
+}
+
+/* Smooth scrolling for mobile menu content */
+.mobile-menu-content {
+    scroll-behavior: smooth;
+}
+
+/* Touch feedback */
+@media (hover: none) and (pointer: coarse) {
+    .mobile-menu-item:active {
+        background-color: #ccfbf1;
+    }
+
+    .mobile-menu-cta-btn:active {
+        background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+    }
+}
+
+/* Screen Reader Only Class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ===================================
+   IMPROVED CONTAINER STRATEGY
+   =================================== */
+
+.container {
+    max-width: min(100% - 2rem, 1280px);
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* Performance optimization */
+    contain: layout style paint;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* ===================================
+   LAYOUT PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+/* Optimize animations to use transform instead of layout properties */
+.project-card,
+.pricing-card,
+.mobile-menu-item,
+.mobile-menu-cta-btn {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* CSS containment for better performance */
+.project-grid,
+.pricing-carousel {
+    contain: layout style paint;
+}
+
+/* Optimize modal performance */
+.modal-content {
+    contain: layout style;
+    will-change: transform;
+}
+
+/* Reduce paint on hover states */
+.project-card::before,
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 148, 136, 0.05);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.project-card:hover::before,
+.pricing-card:hover::before {
+    opacity: 1;
+}
+
+/* Animated Background Blobs */
+
+@keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 { animation-delay: 2s; }
+
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* ===================================
+
+   MOBILE MENU IMPROVEMENTS
+
+   =================================== */
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 20px rgba(0,0,0,0.15);
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Mobile Header Styles */
+.mobile-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background: white;
+}
+
+.mobile-menu-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.mobile-menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.mobile-menu-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.mobile-menu-cta {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Mobile Menu Items */
+.mobile-menu-item {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    margin: 0.125rem 0;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:focus {
+    color: #0d9488;
+    background-color: #f0fdfa;
+    transform: translateX(4px);
+}
+
+.mobile-menu-item:active {
+    transform: translateX(2px) scale(0.98);
+}
+
+/* Active state for current page */
+.mobile-menu-item.active {
+    color: #0d9488;
+    background-color: #f0fdfa;
+    font-weight: 600;
+}
+
+.mobile-menu-cta-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+
+.mobile-menu-cta-btn:hover,
+.mobile-menu-cta-btn:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+}
+
+.mobile-menu-cta-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.mobile-menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 35;
+}
+
+.mobile-menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Hamburger Menu Icon - Enhanced Animation */
+.mobile-menu-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-icon:hover {
+    opacity: 0.8;
+}
+
+/* ===================================
+
+   PROJECT MODAL - MOBILE OPTIMIZED
+
+   =================================== */
+
+.project-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.project-modal.active {
+    display: block;
+}
+
+.modal-content {
+    position: relative;
+    max-width: min(1200px, 95vw);
+    margin: 1rem auto;
+    background-color: white;
+    border-radius: 1rem;
+    padding: clamp(1rem, 4vw, 2rem);
+    max-height: 90vh;
+    overflow-y: auto;
+    /* Better mobile spacing and scrolling */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile Modal Improvements */
+
+@media (max-width: 768px) {
+    .project-modal {
+        padding: 0;
+        align-items: flex-end; /* Better mobile positioning */
+    }
+
+    .modal-content {
+        margin: 0;
+        border-radius: 1rem 1rem 0 0; /* Rounded top corners only on mobile */
+        padding: clamp(1rem, 4vw, 1.5rem);
+        padding-top: 3rem; /* Space for close button */
+        padding-bottom: 2rem;
+        max-height: 85vh; /* Slightly less than 90vh for better UX */
+        border-top: 4px solid #0d9488; /* Visual indicator */
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        z-index: 1001;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        border: 2px solid #e5e7eb;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #6b7280;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+    transform: scale(1.1);
+}
+
+.modal-details {
+    padding: 1rem 0;
+}
+
+.modal-details h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    padding-right: 2.5rem;
+}
+
+.modal-details p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* Mobile Typography */
+
+@media (max-width: 640px) {
+    .modal-details h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-details h3 {
+        font-size: 1.25rem;
+    }
+
+    .modal-details p,
+    .modal-details li {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===================================
+
+   TAB NAVIGATION - MOBILE OPTIMIZED
+
+   =================================== */
+
+.tab-buttons-container {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    color: #6b7280;
+}
+
+.tab-button.active {
+    color: #0d9488;
+    border-bottom-color: #0d9488;
+}
+
+.tab-button:hover {
+    background-color: #f9fafb;
+}
+
+@media (max-width: 640px) {
+    .tab-buttons-container {
+        gap: 0.5rem;
+        padding: 0.25rem;
+        background: #f9fafb;
+        border-radius: 0.75rem;
+        border: none;
+        margin-bottom: 1rem;
+    }
+
+    .tab-button {
+        flex: 1;
+        border-radius: 0.5rem;
+        border: none;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+        background: white;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .tab-button.active {
+        background: #0d9488;
+        color: white;
+        box-shadow: 0 2px 4px rgba(13,148,136,0.2);
+    }
+
+    .tab-button:not(.active) {
+        color: #6b7280;
+    }
+}
+
+/* ===================================
+
+   DESKTOP SCREENSHOT WITH NAVIGATION
+
+   =================================== */
+
+.screenshot-with-nav {
+    display: flex;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    max-height: 600px;
+}
+
+.screenshot-main-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.screenshot-main-container img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.screenshot-nav {
+    width: 140px;
+    background-color: #f1f5f9;
+    border-left: 1px solid #e2e8f0;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+}
+
+.nav-section {
+    cursor: pointer;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    background: white;
+}
+
+.nav-section:hover,
+.nav-section:active {
+    border-color: #0d9488;
+    transform: scale(1.02);
+}
+
+.nav-thumbnail {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+    display: block;
+}
+
+.nav-label {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+    padding: 0.5rem 0.25rem;
+    background-color: white;
+}
+
+/* Mobile: Stack navigation below for BOTH desktop and mobile tabs */
+
+@media (max-width: 768px) {
+    .screenshot-with-nav {
+        flex-direction: column;
+        max-height: none;
+    }
+
+    .screenshot-main-container {
+        order: 1;
+        max-height: 400px;
+        padding: 1rem;
+        width: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshot-nav {
+        order: 2;
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #e2e8f0;
+        padding: 1rem;
+        flex-direction: row;
+        gap: 0.75rem;
+        overflow-x: auto;
+        overflow-y: visible;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    /* Keep smaller thumbnails on mobile for desktop demo */
+
+    .nav-thumbnail {
+        width: 60px;
+        height: 45px;
+        display: block;
+    }
+
+    .nav-section {
+        min-width: auto;
+        flex-shrink: 0;
+        padding: 0.5rem 0.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .nav-label {
+        padding: 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .screenshot-main-container {
+        padding: 0.5rem;
+        max-height: 300px;
+    }
+
+    .screenshot-nav {
+        padding: 0.75rem 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .nav-section {
+        padding: 0.625rem 1rem;
+    }
+
+    .nav-label {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .screenshot-main-container {
+        max-height: 250px;
+    }
+}
+
+.clickable-screenshot {
+    cursor: pointer;
+    transition: opacity 0.2s;
+    width: 100%;
+    display: block;
+    border-radius: 0.5rem;
+}
+
+.clickable-screenshot:hover {
+    opacity: 0.95;
+}
+
+/* Mobile Demo Navigation Styles */
+.screenshot-with-nav-mobile {
+    display: flex;
+    background-color: #f1f5f9;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.screenshot-main-container-mobile {
+    flex: 1;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screenshot-nav-mobile {
+    width: 140px;
+    background-color: #f1f5f9;
+    border-left: 1px solid #e2e8f0;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+}
+
+/* Hide mobile navigation on mobile screens */
+@media (max-width: 768px) {
+    .screenshot-with-nav-mobile {
+        flex-direction: column;
+    }
+
+    .screenshot-main-container-mobile {
+        order: 1;
+        padding: 1rem;
+    }
+
+    .screenshot-nav-mobile {
+        display: none;
+    }
+}
+
+/* ===================================
+
+   MOBILE PHONE FRAME - ULTRA MINIMAL
+
+   =================================== */
+
+.phone {
+    width: 320px;
+    max-width: 85vw;
+    height: 690px;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 38px;
+    background: #111;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin: 0 auto;
+    overflow: hidden; /* Prevent phone frame from scrolling */
+}
+
+/* Legacy screen class - not used in current implementation */
+
+/* Phone Screen Container for Mobile Demos */
+.phone-screen {
+    width: 100%;
+    height: 670px; /* Fixed height for phone screen scrolling (690px - 20px padding) */
+    background: #000;
+    border-radius: 30px; /* More rounded to match iPhone style */
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.phone-screen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    min-height: 120%;
+}
+
+/* Mobile Phone Frame Responsive */
+
+@media (max-width: 768px) {
+    .phone {
+        width: 290px;
+        max-width: 80vw;
+        height: 620px; /* Maintain iPhone aspect ratio */
+        padding: 9px;
+        border: 2px solid #000;
+        border-radius: 34px;
+    }
+
+    .phone-screen {
+        height: 602px; /* 620px - 18px padding */
+        border-radius: 27px;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone {
+        width: 255px;
+        max-width: 75vw;
+        height: 550px; /* Maintain iPhone aspect ratio */
+        padding: 7px;
+        border: 2px solid #000;
+        border-radius: 31px;
+    }
+
+    .phone-screen {
+        height: 536px; /* 550px - 14px padding */
+        border-radius: 24px;
+    }
+}
+
+@media (max-width: 375px) {
+    .phone {
+        width: 220px;
+        max-width: 70vw;
+        height: 480px; /* Maintain iPhone aspect ratio */
+        padding: 5px;
+        border: 1px solid #000;
+        border-radius: 27px;
+    }
+
+    .phone-screen {
+        height: 470px; /* 480px - 10px padding */
+        border-radius: 22px;
+    }
+}
+
+/* Mobile Navigation Sidebar */
+
+.mobile-nav-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    /* Removed max-height and scrolling */
+}
+
+/* Text-only navigation below phone frame on mobile */
+.mobile-nav-text-below {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.nav-text-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.nav-text-button:hover,
+.nav-text-button:active {
+    border-color: #0d9488;
+    background: #f0fdfa;
+    color: #0d9488;
+}
+
+@media (max-width: 640px) {
+    .mobile-nav-text-below {
+        gap: 0.375rem;
+        padding: 0.75rem;
+        max-width: 350px;
+    }
+
+    .nav-text-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-nav-text-below {
+        gap: 0.25rem;
+        padding: 0.5rem;
+        max-width: 300px;
+    }
+
+    .nav-text-button {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .mobile-nav-sidebar-below {
+        gap: 0.5rem;
+        padding: 0.75rem;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-nav-sidebar-below {
+        gap: 0.375rem;
+        padding: 0.5rem;
+        max-width: 300px;
+    }
+
+    .mobile-nav-sidebar-below .nav-section-mobile {
+        width: 60px;
+        height: 60px;
+    }
+
+    .mobile-nav-sidebar-below .nav-thumbnail-mobile {
+        height: 45px;
+    }
+
+    .mobile-nav-sidebar-below .nav-label-mobile {
+        font-size: 0.7rem;
+        padding: 0.25rem;
+    }
+}
+
+.nav-section-mobile {
+    cursor: pointer;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.nav-section-mobile:hover,
+.nav-section-mobile:active {
+    border-color: #0d9488;
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(13,148,136,0.2);
+}
+
+.nav-thumbnail-mobile {
+    width: 100%;
+    height: 75px;
+    object-fit: cover;
+    display: block;
+}
+
+.nav-label-mobile {
+    display: block;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1f2937;
+    padding: 0.5rem;
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-sidebar {
+        gap: 0.625rem;
+        padding: 0.75rem;
+    }
+
+    .nav-thumbnail-mobile {
+        height: 65px;
+    }
+
+    .nav-label-mobile {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-nav-sidebar {
+        gap: 0.5rem;
+        padding: 0.625rem;
+    }
+
+    .nav-section-mobile {
+        border-radius: 0.5rem;
+    }
+
+    .nav-thumbnail-mobile {
+        height: 55px;
+    }
+
+    .nav-label-mobile {
+        font-size: 0.75rem;
+        padding: 0.375rem;
+    }
+}
+
+/* Custom Scrollbars */
+
+.screenshot-main-container::-webkit-scrollbar,
+.screen::-webkit-scrollbar,
+.screenshot-nav::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.screenshot-main-container::-webkit-scrollbar-track,
+.screen::-webkit-scrollbar-track,
+.screenshot-nav::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+}
+
+.screenshot-main-container::-webkit-scrollbar-thumb,
+.screen::-webkit-scrollbar-thumb,
+.screenshot-nav::-webkit-scrollbar-thumb {
+    background: rgba(13, 148, 136, 0.4); /* Teal theme color */
+    border-radius: 3px;
+}
+
+.screenshot-main-container::-webkit-scrollbar-thumb:hover,
+.screen::-webkit-scrollbar-thumb:hover,
+.screenshot-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(13, 148, 136, 0.6);
+}
+
+/* Mobile Phone Screen Scrollbar - Matches desktop but stands out */
+
+.phone-screen::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.phone-screen::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.phone-screen::-webkit-scrollbar-thumb {
+    background: rgba(13, 148, 136, 0.6); /* Teal color to match theme */
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.phone-screen::-webkit-scrollbar-thumb:hover {
+    background: rgba(13, 148, 136, 0.8);
+}
+
+/* ===================================
+
+    PRICING CAROUSEL
+
+    =================================== */
+
+.pricing-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(13, 148, 136, 0.4) transparent;
+    /* Prevent vertical scrolling */
+    white-space: nowrap;
+}
+
+.pricing-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.pricing-carousel::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+}
+
+.pricing-carousel::-webkit-scrollbar-thumb {
+    background: rgba(13, 148, 136, 0.4);
+    border-radius: 3px;
+}
+
+.pricing-carousel::-webkit-scrollbar-thumb:hover {
+    background: rgba(13, 148, 136, 0.6);
+}
+
+.pricing-card {
+    flex: 0 0 300px;
+    transition: transform 0.2s ease;
+    scroll-snap-align: start;
+}
+
+.pricing-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Desktop: Show 3 cards at a time */
+@media (min-width: 1024px) {
+    .pricing-carousel {
+        gap: 2rem;
+    }
+
+    .pricing-card {
+        flex: 0 0 calc((100% - 4rem) / 3);
+        min-width: 300px;
+    }
+}
+
+/* Tablet: Show 2 cards at a time */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .pricing-carousel {
+        gap: 1.5rem;
+    }
+
+    .pricing-card {
+        flex: 0 0 calc((100% - 1.5rem) / 2);
+        min-width: 280px;
+    }
+}
+
+/* Mobile: Show 1 card at a time */
+@media (max-width: 767px) {
+    .pricing-carousel {
+        gap: 1rem;
+        padding: 0.5rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .pricing-carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pricing-card {
+        flex: 0 0 100%;
+        min-width: 280px;
+    }
+}
+
+/* ===================================
+   IMPROVED PROJECT GRID SYSTEM
+   =================================== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        padding: 0 2rem;
+    }
+}
+
+/* ===================================
+
+   FAQ ACCORDION
+
+   =================================== */
+
+.faq-question {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.faq-answer {
+    transition: all 0.3s ease;
+    line-height: 1.7;
+}
+
+.faq-answer.hidden {
+    display: none;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* ===================================
+
+   TOUCH IMPROVEMENTS FOR iOS
+
+   =================================== */
+
+button, a, .project-card, .tab-button, .nav-section, .nav-section-mobile {
+    -webkit-tap-highlight-color: rgba(13, 148, 136, 0.1);
+    touch-action: manipulation;
+    min-height: 44px; /* iOS minimum touch target */
+    min-width: 44px;
+}
+
+/* Ensure form inputs meet minimum touch targets on mobile */
+@media (max-width: 768px) {
+    input, select, textarea, button {
+        min-height: 44px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    /* Better focus styles for mobile */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+        outline: 2px solid #0d9488;
+        outline-offset: 2px;
+    }
+}
+
+/* Smooth Scrolling */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent bounce on iOS */
+
+body {
+    overscroll-behavior-y: contain;
+}
+
+/* ===================================
+
+   MODAL CONTENT SPACING
+
+   =================================== */
+
+.modal-content > div {
+    margin-bottom: 1.5rem;
+}
+
+.modal-content ul {
+    margin-top: 0.75rem;
+}
+
+.modal-content li {
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 640px) {
+    .modal-content > div {
+        margin-bottom: 1.25rem;
+    }
+
+    .modal-content ul {
+        margin-top: 0.5rem;
+    }
+
+    .modal-content li {
+        margin-bottom: 0.625rem;
+    }
+}
+
+/* ===================================
+
+   PROJECT CARD IMPROVEMENTS
+
+   =================================== */
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-image {
+    aspect-ratio: 16 / 10; /* More modern aspect ratio */
+    overflow: hidden;
+    background: #f9fafb; /* Better fallback background */
+}
+
+.project-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 0.75rem;
+}
+
+.project-card-content h3 {
+    margin: 0;
+    line-height: 1.3;
+}
+
+.project-card-content p {
+    margin: 0;
+    flex: 1;
+    line-height: 1.5;
+}
+
+.project-card:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 640px) {
+    .project-card {
+        border-radius: 0.75rem;
+    }
+
+    .project-card-content {
+        padding: 1.25rem;
+    }
+}
+
+/* ===================================
+
+   LOADING STATES
+
+   =================================== */
+
+img {
+    transition: opacity 0.3s ease;
+}
+
+/* Only hide images that have a loading attribute but haven't loaded yet */
+img[loading]:not([src]) {
+    opacity: 0;
+}
+
+/* Loading animation for lazy loaded images that don't have src yet */
+img[loading="lazy"]:not([src]) {
+    opacity: 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite;
+}
+
+/* Show images that have src attribute */
+img[src] {
+    opacity: 1;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===================================
+
+   UTILITY CLASSES
+
+   =================================== */
+
+.safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+}
+
+/* ===================================
+
+   SCROLLBAR FIX - ONLY 2 SCROLLBARS
+
+   Main page + Modal only
+
+   =================================== */
+
+/* Remove nested scrollbars from cards and other elements */
+
+.card-image-wrapper,
+.project-card {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+/* Ensure main body scrolling works */
+
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+}
+
+/* Modal should have its own scrollbar */
+
+.project-modal {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal-content {
+    overflow: visible;
+    max-height: none;
+}
+
+/* Keep scrolling for desktop demo */
+
+/* Phone frame - keep scrolling for mobile demo */
+
+/* Remove any other nested scroll containers */
+
+.tab-content,
+.tab-content > div {
+    overflow: visible !important;
+}
+
+/* Ensure project cards don't create scroll */
+
+.projects-grid {
+    overflow: visible;
+}
+
+.project-card,
+.card-image-wrapper,
+.card-content {
+    overflow: visible;
+}
+
+/* When modal is open, prevent body scroll */
+
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Main header stays visible - mobile menu has its own header with logo */
+
+/* Modal gets the scrollbar instead */
+
+.project-modal.active {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile fixes */
+
+@media (max-width: 768px) {
+    /* Make sure mobile doesn't have nested scrolls */
+
+    .screenshot-nav {
+        overflow-x: auto;
+        overflow-y: visible;
+    }
+
+    /* Tab buttons can scroll horizontally if needed */
+
+    .tab-buttons-container {
+        overflow-x: auto;
+        overflow-y: visible;
+    }
+}
+

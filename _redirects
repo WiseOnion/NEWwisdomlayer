@@ -1,0 +1,15 @@
+# Netlify redirects for WisdomLayers website
+# Handle clean URLs and SPA routing
+
+# Main pages
+/projects  /html/projects.html  200
+/privacy-policy  /html/privacy-policy.html  200
+
+# Agreement forms
+/agreement-forms/*  /html/agreement-forms/:splat  200
+
+# Redirect root to index.html
+/  /index.html  200
+
+# SPA fallback for client-side routing
+/*  /index.html  200

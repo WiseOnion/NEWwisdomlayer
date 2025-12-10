@@ -1,0 +1,1006 @@
+<!--
+    WisdomLayers Website
+    ===================
+
+    This HTML file can be opened directly in a browser (double-click the file)
+    and works fully offline with all features.
+
+    The contact form provides helpful messaging when opened as a local file,
+    directing users to visit the live site or email directly.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WisdomLayers - Professional Web Development Services | Custom Websites for Small Businesses</title>
+
+    <!-- For direct HTML file opening (file:// protocol) -->
+    <base href="./">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional web development services for coaches, restaurants, artists, and small businesses. Custom websites, booking systems, and e-commerce solutions. Get your business online today with WisdomLayers.">
+    <meta name="keywords" content="web development, website design, small business websites, custom websites, professional web developer, booking system, e-commerce websites, restaurant websites, coaching websites, artist portfolios, website development services">
+    <meta name="author" content="WisdomLayers">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://wisdomlayers.com/">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="United States">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wisdomlayers.com/">
+    <meta property="og:title" content="WisdomLayers - Professional Web Development Services | Custom Websites">
+    <meta property="og:description" content="Expert web development for small businesses. Custom websites, booking systems, and e-commerce solutions. Professional, affordable, and results-driven.">
+    <meta property="og:image" content="https://wisdomlayers.com/images/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="WisdomLayers">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://wisdomlayers.com/">
+    <meta name="twitter:title" content="WisdomLayers - Professional Web Development Services | Custom Websites">
+    <meta name="twitter:description" content="Expert web development for small businesses. Custom websites, booking systems, and e-commerce solutions. Professional, affordable, and results-driven.">
+    <meta name="twitter:image" content="https://wisdomlayers.com/images/logo.png">
+    <meta name="twitter:creator" content="@WisdomLayers">
+    <meta name="twitter:site" content="@WisdomLayers">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "WisdomLayers",
+      "description": "Professional web development services for small businesses, coaches, restaurants, and artists",
+      "url": "https://wisdomlayers.com",
+      "logo": "https://wisdomlayers.com/images/logo.png",
+      "image": "https://wisdomlayers.com/images/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
+      "serviceArea": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Starter Website Package",
+              "description": "3-5 page professional website with contact form and basic SEO",
+              "price": "499",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Professional Website Package",
+              "description": "6-10 page website with animations, CMS integration, and enhanced SEO",
+              "price": "599",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Premium Website Package",
+              "description": "10+ page website with booking system and e-commerce capabilities",
+              "price": "899",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://github.com/WiseOnion",
+        "https://www.linkedin.com/in/wisdom-johnson-b193b4338/"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Wisdom Johnson",
+        "jobTitle": "Web Developer & Designer"
+      },
+      "knowsAbout": [
+        "Web Development",
+        "Website Design",
+        "Custom Websites",
+        "E-commerce",
+        "Booking Systems",
+        "Small Business Websites",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    }
+    </script>
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+
+    <!-- Optimized font loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="sticky top-0 z-[150] bg-white/95 backdrop-blur-sm border-b border-gray-200" style="backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); background-color: rgba(255, 255, 255, 0.95);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="assets/images/Logo.png" alt="WisdomLayers - Professional Web Development Services Logo" class="h-10 w-10" loading="lazy">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">
+                        WisdomLayers
+                    </span>
+                </a>
+                <nav class="hidden md:flex gap-8">
+                    <a href="html/projects.html" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Projects</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Pricing</a>
+                    <a href="#about" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Contact</a>
+                </nav>
+
+            <!-- Mobile Menu Button -->
+            <button
+                id="mobileMenuBtn"
+                class="md:hidden p-2 text-gray-700 hover:text-teal-600 transition-colors"
+                aria-label="Toggle mobile menu"
+                aria-expanded="false"
+                aria-controls="mobileMenu"
+            >
+                <div class="mobile-menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+
+                <a href="#contact" class="hidden md:inline-block px-5 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-medium">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Backdrop -->
+    <div
+        id="mobileMenuBackdrop"
+        class="mobile-menu-backdrop"
+        aria-hidden="true"
+    ></div>
+
+    <!-- Mobile Menu -->
+    <div
+        id="mobileMenu"
+        class="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mobile-menu-title"
+        aria-hidden="true"
+    >
+        <!-- Mobile Menu Header -->
+        <div class="mobile-header">
+            <button id="mobileMenuCloseBtn" class="mobile-menu-close-btn" aria-label="Close mobile menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Content -->
+        <div class="mobile-menu-content">
+            <!-- Navigation Links -->
+            <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile navigation">
+                <h2 id="mobile-menu-title" class="sr-only">Mobile Menu</h2>
+                <a href="html/projects.html" class="mobile-menu-item" tabindex="-1">
+                    Projects
+                </a>
+                <a href="#pricing" class="mobile-menu-item" tabindex="-1">
+                    Pricing
+                </a>
+                <a href="#about" class="mobile-menu-item" tabindex="-1">
+                    About
+                </a>
+                <a href="#contact" class="mobile-menu-item" tabindex="-1">
+                    Contact
+                </a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="mobile-menu-cta">
+                <a href="#contact" class="mobile-menu-cta-btn" tabindex="-1">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section min-h-[100vh] min-h-[100svh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-[max(5rem,10vh)] pb-[max(5rem,10vh)] bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <!-- Animated Background Shapes -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-teal-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="text-center max-w-3xl mx-auto relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                Layered thinking.
+                <span class="block mt-2 bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent" style="padding-bottom: 0.1em;">
+                    Clear design.
+
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed">
+                Crafting digital experiences that convert visitors into customers.
+                Professional websites tailored for coaches, restaurants, artists, and small businesses.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="html/projects.html" class="px-8 py-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all hover:scale-105 font-medium text-lg shadow-lg">
+                    View Portfolio
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-white text-teal-600 border-2 border-teal-600 rounded-lg hover:bg-teal-50 transition-all hover:scale-105 font-medium text-lg">
+                    Start Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section class="min-h-screen flex items-center justify-center py-24 bg-gray-50">
+        <div class="container">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-5xl font-bold text-gray-900">Featured Work</h2>
+                <a href="html/projects.html" class="text-teal-600 hover:text-teal-700 font-semibold flex items-center gap-2 transition-all hover:gap-3 text-lg">
+                    View All Projects
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="project-grid">
+                
+                <!-- Project Card 1 - Miles2Wisdom -->
+                <div class="project-card bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-project="miles2wisdom">
+                    <div class="project-card-image">
+                        <img src="assets/images/miles2wisdom/m2w-card.png" alt="Miles2Wisdom Therapy Practice Website - Custom web development for family counseling services" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Miles2Wisdom</h3>
+                        <p class="text-gray-600 mb-4">Family & marriage therapy practice with booking and intake systems</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Therapy</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Booking</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Forms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 - PJ Pressure -->
+                <div class="project-card bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-project="pjpressure">
+                    <div class="project-card-image">
+                        <img src="assets/images/pjpressure/pj-card.png" alt="PJ Pressure Washing Company Website - Professional web design for pressure washing business with booking system" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">PJ Pressure</h3>
+                        <p class="text-gray-600 mb-4">Professional pressure washing services with online booking and quote system</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Pressure Washing</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Booking</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Gallery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="project-card-image bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center">
+                        <p class="text-gray-400 text-sm">Project Screenshot</p>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Artisan Eats</h3>
+                        <p class="text-gray-600 mb-4">Restaurant menu showcase with online ordering integration</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">Restaurant</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose WisdomLayers Section -->
+    <section class="py-24 bg-gradient-to-br from-gray-50 to-teal-50">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Why Choose WisdomLayers</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Professional web development that delivers real results for small businesses</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lightning Fast</h3>
+                    <p class="text-gray-600">Optimized performance ensures your website loads quickly, improving user experience and SEO rankings.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Mobile First</h3>
+                    <p class="text-gray-600">Every website is designed to look perfect on phones, tablets, and desktops.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">SEO Optimized</h3>
+                    <p class="text-gray-600">Built with search engine optimization best practices to help your business rank higher.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Ongoing Support</h3>
+                    <p class="text-gray-600">Free support period plus affordable maintenance to keep your website updated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gradient-to-br from-teal-50 to-teal-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What Clients Say</h2>
+                <p class="text-lg text-gray-600">Real feedback from real businesses</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="flex items-center mb-3">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3 italic">"The website represents our practice perfectly. It is calm, professional, and easy to use. Scheduling and intake are way smoother now."</p>
+                    <p class="font-semibold text-gray-900">— Miles2Wisdom Team</p>
+                    <p class="text-sm text-gray-500">Therapy Practice</p>
+                </div>
+
+                <!-- Testimonial 2 - Placeholder -->
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 opacity-60">
+                    <div class="flex items-center mb-3">
+                        <div class="flex text-yellow-400">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3 italic">"Your testimonial will appear here after your project is complete!"</p>
+                    <p class="font-semibold text-gray-900">— Your Business</p>
+                    <p class="text-sm text-gray-500">Next Success Story</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-24 bg-white">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Simple, transparent process from start to finish</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-teal-600 to-teal-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Discovery Call</h3>
+                    <p class="text-gray-600 leading-relaxed">We discuss your vision, goals, and requirements. I'll help you choose the perfect package for your needs.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-teal-600 to-teal-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Design & Build</h3>
+                    <p class="text-gray-600 leading-relaxed">I create your custom website with regular updates and your feedback throughout the process.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-teal-600 to-teal-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Review & Refine</h3>
+                    <p class="text-gray-600 leading-relaxed">You review the completed site and request any final adjustments before we launch.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-teal-600 to-teal-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
+                        4
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Launch & Support</h3>
+                    <p class="text-gray-600 leading-relaxed">Your site goes live, and I provide ongoing support to ensure everything runs smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white">
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+            <p class="text-xl text-gray-600">Professional websites at prices small businesses can afford</p>
+        </div>
+
+        <!-- Pricing Carousel Container -->
+        <div class="pricing-carousel-container max-w-6xl mx-auto relative">
+            <!-- Carousel Navigation -->
+            <button class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors hidden md:flex items-center justify-center" aria-label="Previous pricing options">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+
+            <button class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors hidden md:flex items-center justify-center" aria-label="Next pricing options">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+            <!-- Pricing Grid Container -->
+            <div class="pricing-carousel overflow-x-auto md:overflow-visible">
+            <!-- Starter -->
+            <div class="pricing-card bg-white border-2 border-gray-200 rounded-xl p-8 h-full flex flex-col">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+                <div class="mb-6">
+                    <p class="text-4xl font-bold text-teal-600">$499</p>
+                </div>
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>3-5 custom pages</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Mobile responsive</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Contact form</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Basic SEO</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>1 month support</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block w-full px-6 py-3 border-2 border-teal-600 text-teal-600 rounded-lg hover:bg-teal-50 transition-colors font-medium text-center">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- Professional (Featured) -->
+            <div class="pricing-card bg-gradient-to-br from-teal-600 to-teal-500 text-white rounded-xl p-8 h-full flex flex-col transform md:scale-105 shadow-xl">
+                <div class="bg-white text-teal-600 px-3 py-1 rounded-full text-sm font-bold inline-block mb-4 self-start">
+                    Most Popular
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                <div class="mb-6">
+                    <p class="text-4xl font-bold">$799</p>
+                </div>
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>6-10 pages</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Advanced animations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>CMS integration (easy-to-edit sections)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Enhanced SEO</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>2 months support</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block w-full px-6 py-3 bg-white text-teal-600 rounded-lg hover:bg-gray-100 transition-colors font-medium text-center">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- Premium -->
+            <div class="pricing-card bg-white border-2 border-gray-200 rounded-xl p-8 h-full flex flex-col">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Premium</h3>
+                <div class="mb-6">
+                    <p class="text-4xl font-bold text-teal-600">$1,199</p>
+                </div>
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>10+ pages</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Booking system</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Simple e-commerce</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Priority support</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>3 months support</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block w-full px-6 py-3 border-2 border-teal-600 text-teal-600 rounded-lg hover:bg-teal-50 transition-colors font-medium text-center">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- Custom -->
+            <div class="pricing-card bg-white border-2 border-gray-200 rounded-xl p-8 h-full flex flex-col">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Custom</h3>
+                <div class="mb-6">
+                    <p class="text-4xl font-bold text-teal-600">$2,500+</p>
+                </div>
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Full e-commerce</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>User accounts</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Custom features</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Unlimited pages</span>
+                    </li>
+                    <li class="flex items-start text-gray-600">
+                        <svg class="w-5 h-5 text-teal-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Extended support</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="block w-full px-6 py-3 border-2 border-teal-600 text-teal-600 rounded-lg hover:bg-teal-50 transition-colors font-medium text-center">
+                    Contact Us
+                </a>
+            </div>
+            </div>
+
+            <!-- Carousel Dots -->
+            <div class="flex justify-center gap-2 mt-8 md:hidden">
+                <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="0" aria-label="Go to first pricing option"></button>
+                <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="1" aria-label="Go to second pricing option"></button>
+                <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="2" aria-label="Go to third pricing option"></button>
+                <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="3" aria-label="Go to fourth pricing option"></button>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-gray-600 mb-4">✓ All packages include mobile-responsive design and deployment</p>
+            <p class="text-gray-600">✓ 50% deposit required to start • 50% due on completion</p>
+        </div>
+    </section>
+
+    <!-- Pricing FAQ Section -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-gray-50">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Pricing FAQ</h2>
+        
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">What's the difference between the packages?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    <strong>Starter ($499):</strong> Perfect for small businesses that need a professional online presence. 3-5 pages, mobile responsive, contact form, basic SEO, 1 month support.<br><br>
+                    <strong>Professional ($599):</strong> Ideal for growing businesses. 6-10 pages, smooth animations, easy content editing (CMS), better SEO, 2 months support.<br><br>
+                    <strong>Premium ($899):</strong> For businesses needing advanced features. 10+ pages, booking systems, simple e-commerce, 3 months priority support.<br><br>
+                    <strong>Custom ($1,875+):</strong> Full e-commerce stores, membership sites, custom dashboards, and complex features tailored to your needs.
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">How does payment work?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    Simple! 50% deposit to start your project, 50% when it's complete and ready to launch. I accept PayPal, Bank Transfer, and CashApp. The deposit gets us both committed and covers initial work like planning and design. Full contract details will be provided before you sign anything.
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">How long does it take to build my website?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    <strong>Starter:</strong> 1-2 weeks<br>
+                    <strong>Professional:</strong> 2-3 weeks<br>
+                    <strong>Premium:</strong> 3-4 weeks<br>
+                    <strong>Custom:</strong> 4-8 weeks depending on complexity<br><br>
+                    Timeline starts after deposit and once I have all your content (text, images, logos). Need it faster? Rush delivery is available for an additional fee.
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">What do I need to provide?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    I'll guide you through everything, but here's the basic checklist:<br>
+                    • Content (text for all your pages)<br>
+                    • Images and photos (high quality)<br>
+                    • Logo and brand colors<br>
+                    • Access to your domain and hosting<br><br>
+                    Don't have some of these? No problem! I can help you get started or recommend resources.
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">Do you handle domain and hosting?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    Domain and hosting are purchased separately (typically $10-50/year for domains, $0-20/month for hosting). You own them directly. I can purchase your domain for you for a small $35 setup fee, or I can guide you through buying it yourself. I'll help you set everything up either way!
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">Can I update the website myself?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    Since your website is custom-built with HTML, CSS, and JavaScript, updates require editing the code. Don’t worry — I offer support and can make changes quickly. For ongoing updates, I also offer a monthly maintenance plan so your site stays fresh and up-to-date.
+                </div>
+            </div>
+
+            <!-- FAQ Item 7 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">What happens after my free support period?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    Your website keeps working perfectly! After your included support ends (1-3 months depending on package), you have two options:<br><br>
+                    <strong>Pay-per-change:</strong> Request updates as needed. Small changes start at $75.<br>
+                    <strong>Monthly retainer ($150/month):</strong> Includes up to 3 small changes monthly, priority support, and regular site health checks.<br><br>
+                    No pressure—choose what works best for your business!
+                </div>
+            </div>
+
+            <!-- FAQ Item 8 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">Will my website work on mobile phones?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    Absolutely! Every website is fully responsive and looks great on phones, tablets, and desktops. Since most people browse on mobile these days, I design for mobile-first. Your site will work smoothly on all modern devices and browsers.
+                </div>
+            </div>
+
+            <!-- FAQ Item 9 -->
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <span class="font-semibold text-gray-900">What if I need help after the project is done?</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                    I'm here for you! During your free support period, I'll fix any bugs, help with small text updates, and answer questions. After that, I'm still available for updates, new features, or ongoing maintenance. Many clients stay with me long-term because I actually care about your success.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-teal-900 text-white py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-5xl font-bold mb-8">About WisdomLayers</h2>
+                    <div class="space-y-6 text-lg leading-relaxed">
+                        <p class="text-gray-300">
+                            Hi, I'm <span class="text-teal-400 font-semibold">Wisdom</span> — a designer and developer who believes professional websites shouldn't be reserved for big corporations.
+                        </p>
+                        <p class="text-gray-300">
+                            I started WisdomLayers to help <span class="text-white font-medium">small businesses, coaches, restaurants, and artists</span> create a digital presence that's both professional and affordable.
+                        </p>
+                        <p class="text-gray-300">
+                            Every project is built with care, optimized for performance, and designed to turn visitors into paying customers. I focus on clean, modern HTML, CSS, and JavaScript websites that look great, function smoothly, and reflect your brand's personality.
+                        </p>
+                    </div>
+                    <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="px-8 py-4 bg-teal-600 text-white rounded-lg hover:bg-teal-500 transition-all hover:scale-105 font-medium text-lg text-center shadow-xl">
+                            Start Your Project
+                        </a>
+                        <a href="html/projects.html" class="px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-gray-900 transition-all hover:scale-105 font-medium text-lg text-center">
+                            View My Work
+                        </a>
+                    </div>
+                </div>
+                <div class="relative hidden md:block">
+                    <div class="bg-gradient-to-br from-teal-600 to-teal-500 rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition-transform">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-xl">Professional Quality</p>
+                                    <p class="text-teal-100">Built with modern standards</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-xl">Lightning Fast</p>
+                                    <p class="text-teal-100">Optimized performance</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-xl">Mobile First</p>
+                                    <p class="text-teal-100">Works everywhere</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-teal-400 rounded-full opacity-20 blur-2xl"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-teal-400 rounded-full opacity-20 blur-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Let's Start Your Project</h2>
+            <p class="text-xl text-gray-600">
+                Tell me about your vision and I'll send you a custom quote within 24 hours
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Main Contact Form -->
+            <div class="md:col-span-2">
+                <form class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Your Name</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent" placeholder="John Doe">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent" placeholder="john@example.com">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Budget Range</label>
+                        <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent">
+                            <option value="">Select budget...</option>
+                            <option value="499">$499 - Starter</option>
+                            <option value="799">$799 - Professional</option>
+                            <option value="1199">$1,199 - Premium</option>
+                            <option value="2500+">$2,500+ - Custom</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Project Details</label>
+                        <textarea required rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent" placeholder="Tell me about your business, goals, and what kind of website you need..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-medium text-lg">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Get Back in Contact -->
+            <div class="md:col-span-1">
+                <div class="bg-gray-50 rounded-xl shadow-lg p-6 border border-gray-200 h-full flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Get Back in Contact</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">
+                        If you are a current or past client and would like to request updates or revisions to your page, please get in touch with us using the link below.
+                    </p>
+                    <a href="mailto:contact@wisdomlayers.com" class="block w-full px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-lg hover:bg-teal-50 transition-colors font-medium text-center">
+                        Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal">
+        <div id="modalContent" class="modal-content">
+            <!-- Content injected by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-3 bg-gradient-to-r from-teal-400 to-teal-300 bg-clip-text text-transparent">
+                    WisdomLayers
+                </h3>
+                <p class="text-gray-400 mb-4">Layered thinking. Clear design.</p>
+                
+                <div class="flex justify-center gap-6 mb-6">
+                    <a href="https://github.com/WiseOnion" target="_blank" rel="noopener noreferrer" class="text-white hover:text-teal-400 transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/wisdom-johnson-b193b4338/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-teal-400 transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex justify-center gap-6 text-gray-500 text-sm mb-4">
+                    <a href="html/privacy-policy.html" class="hover:text-teal-400 transition-colors">Privacy Policy</a>
+                </div>
+                
+                <p class="text-gray-500">© 2025 WisdomLayers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/projects-data.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

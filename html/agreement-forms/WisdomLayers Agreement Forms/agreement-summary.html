@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WisdomLayers Project Summary</title>
+    <style>
+@page {
+    margin: 0.75in;
+    size: letter;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    color: #2d3748;
+    font-size: 11pt;
+}
+
+.screen-wrapper {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.container {
+    background: white;
+    padding: 0;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.cover-page {
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+    padding: 80px 60px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover-page::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.cover-page::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.cover-logo {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.cover-title {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: 30px 0;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+}
+
+.cover-info-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 40px 0;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cover-info-box h2 {
+    color: #0d9488;
+    margin: 0 0 30px 0;
+    font-size: 1.6em;
+}
+
+.info-field {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.info-field label {
+    display: block;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.info-field input[type="text"] {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #0d9488;
+    padding: 10px 0;
+    font-size: 1em;
+    background: transparent;
+}
+
+.package-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.package-checkboxes label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    font-size: 1em;
+    color: #475569;
+}
+
+.cover-tagline {
+    margin-top: 40px;
+    font-size: 1em;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    padding: 60px;
+}
+
+h2 {
+    color: #0d9488;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 50px 0 25px 0;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0d9488;
+}
+
+h3 {
+    color: #1e293b;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 30px 0 15px 0;
+}
+
+.package-box {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border: 2px solid #14b8a6;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 25px 0;
+}
+
+.package-box h3 {
+    color: #0d9488;
+    margin-top: 0;
+    border-bottom: 2px solid #14b8a6;
+    padding-bottom: 10px;
+}
+
+.package-box strong {
+    color: #0d9488;
+}
+
+ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+li {
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+.highlight-box {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin: 25px 0;
+}
+
+.info-box {
+    background: #dbeafe;
+    border-left: 4px solid #3b82f6;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin: 25px 0;
+}
+
+.success-box {
+    background: #d1fae5;
+    border-left: 4px solid #10b981;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin: 25px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 25px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+th {
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.steps li {
+    counter-increment: step-counter;
+    margin: 20px 0;
+    padding-left: 60px;
+    position: relative;
+    font-size: 1.05em;
+}
+
+.steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+}
+
+.contact-box {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border: 2px solid #14b8a6;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.checkbox {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+.signature-section {
+    margin-top: 50px;
+    padding: 30px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px solid #cbd5e1;
+}
+
+.signature-line {
+    border-bottom: 2px solid #475569;
+    margin: 25px 0 10px 0;
+    min-height: 35px;
+}
+
+.page-break {
+    page-break-before: always;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+        margin: 0;
+    }
+
+    .screen-wrapper {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .cover-page {
+        min-height: 100vh;
+        page-break-after: always;
+    }
+
+    .cover-page::before,
+    .cover-page::after {
+        display: none;
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+    .package-box,
+    .highlight-box,
+    .info-box,
+    .success-box,
+    .contact-box,
+    .signature-section,
+    table {
+        page-break-inside: avoid;
+    }
+}
+
+@media screen {
+    .page-break {
+        border-top: 2px dashed #cbd5e1;
+        margin: 50px 0;
+        padding-top: 50px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="screen-wrapper">
+        <div class="container">
+            <!-- COVER PAGE -->
+            <div class="cover-page">
+                <div class="cover-logo">WisdomLayers</div>
+                <div class="cover-title">Project Summary</div>
+                
+                <div class="cover-info-box">
+                    <h2>Client Information</h2>
+                    
+                    <div class="info-field">
+                        <label>Client Name:</label>
+                        <input type="text" value="">
+                    </div>
+                    
+                    <div class="info-field">
+                        <label>Project Start Date:</label>
+                        <input type="text" value="">
+                    </div>
+                    
+                    <div class="info-field">
+                        <label>Selected Package:</label>
+                        <div class="package-checkboxes">
+                            <label><input type="checkbox" class="checkbox"> Starter</label>
+                            <label><input type="checkbox" class="checkbox"> Professional</label>
+                            <label><input type="checkbox" class="checkbox"> Premium</label>
+                            <label><input type="checkbox" class="checkbox"> Custom</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cover-tagline">
+                    This summary provides an overview of your project.<br>
+                    Please review the complete Web Development Agreement for all terms and conditions.
+                </div>
+            </div>
+
+            <!-- CONTENT STARTS HERE -->
+            <div class="content">
+                <div class="highlight-box">
+                    <p style="margin: 0; font-weight: 600; font-size: 1.1em;">IMPORTANT: This is a summary only.</p>
+                    <p style="margin: 10px 0 0 0;">Please review the Complete Web Development Agreement for all terms and conditions. This document is designed to help you understand the key points before signing.</p>
+                </div>
+
+                <h2>Package Overview</h2>
+
+                <div class="package-box">
+                    <h3>STARTER PACKAGE — $499</h3>
+                    <p><strong>Perfect for:</strong> Small businesses that need a professional online presence</p>
+                    
+                    <p><strong>What's Included:</strong></p>
+                    <ul>
+                        <li>✓ 3-5 custom pages (e.g., Home, About, Services, Contact)</li>
+                        <li>✓ Mobile-responsive design</li>
+                        <li>✓ Modern browser compatibility (Chrome, Firefox, Safari, Edge)</li>
+                        <li>✓ Basic SEO (titles, meta descriptions, alt text)</li>
+                        <li>✓ Basic accessibility best practices</li>
+                        <li>✓ Contact form with email notifications</li>
+                        <li>✓ Google Maps integration (if applicable)</li>
+                        <li>✓ 1 month post-launch support</li>
+                        <li>✓ Collaborative development with ongoing feedback</li>
+                    </ul>
+                    
+                    <p><strong>Timeline:</strong> 1-2 weeks from deposit & content delivery</p>
+                    <p><strong>Payment:</strong> $249.50 deposit | $249.50 on completion</p>
+                </div>
+
+                <div class="package-box">
+                    <h3>PROFESSIONAL PACKAGE — $799</h3>
+                    <p><strong>Perfect for:</strong> Growing businesses that need advanced features</p>
+                    
+                    <p><strong>All Starter features, PLUS:</strong></p>
+                    <ul>
+                        <li>✓ 6-10 custom pages</li>
+                        <li>✓ Advanced SEO (Google Analytics, Search Console, keyword research, schema markup)</li>
+                        <li>✓ Advanced animations & interactive elements</li>
+                        <li>✓ CMS integration (easy content updates)</li>
+                        <li>✓ Blog or portfolio section</li>
+                        <li>✓ Advanced forms & social media integration</li>
+                        <li>✓ 2 months post-launch support</li>
+                    </ul>
+                    
+                    <p><strong>Timeline:</strong> 2-3 weeks from deposit & content delivery</p>
+                    <p><strong>Payment:</strong> $399.50 deposit | $399.50 on completion</p>
+                </div>
+
+                <div class="package-box">
+                    <h3>PREMIUM PACKAGE — $1,199</h3>
+                    <p><strong>Perfect for:</strong> Businesses needing advanced functionality</p>
+                    
+                    <p><strong>All Professional features, PLUS:</strong></p>
+                    <ul>
+                        <li>✓ 10+ custom pages</li>
+                        <li>✓ Booking system integration</li>
+                        <li>✓ Simple e-commerce (up to 10 products)</li>
+                        <li>✓ Member login areas or custom features</li>
+                        <li>✓ Priority support during development</li>
+                        <li>✓ 3 months post-launch support</li>
+                    </ul>
+                    
+                    <p><strong>Timeline:</strong> 3-4 weeks from deposit & content delivery</p>
+                    <p><strong>Payment:</strong> $599.50 deposit | $599.50 on completion</p>
+                </div>
+
+                <div class="package-box">
+                    <h3>CUSTOM PACKAGE — Quote Required</h3>
+                    <p><strong>Perfect for:</strong> Unique projects with specific requirements</p>
+                    
+                    <p><strong>Flexible Options:</strong></p>
+                    <ul>
+                        <li>✓ Landing pages: Starting at $500</li>
+                        <li>✓ Full e-commerce stores: Starting at $2,500</li>
+                        <li>✓ Complex web applications</li>
+                        <li>✓ Custom integrations (APIs, databases, user portals)</li>
+                        <li>✓ Up to 6 months post-launch support (based on project scope)</li>
+                    </ul>
+                    
+                    <p><strong>Timeline:</strong> Determined after consultation (typically 4-8 weeks)</p>
+                    <p><strong>Payment:</strong> 50% deposit | 50% on completion</p>
+                </div>
+
+                <div class="page-break"></div>
+
+                <h2>Payment Terms</h2>
+                
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Amount</th>
+                        <th>Due Date</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Deposit (50%)</strong></td>
+                        <td>$_________</td>
+                        <td>Upon contract signing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Final Payment (50%)</strong></td>
+                        <td>$_________</td>
+                        <td>Upon completion, before launch</td>
+                    </tr>
+                    <tr style="background: #f0fdfa;">
+                        <td><strong>Total Project Cost</strong></td>
+                        <td><strong>$_________</strong></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <p><strong>Payment Methods:</strong> PayPal, Bank Transfer, CashApp</p>
+                
+                <div class="highlight-box">
+                    <p style="margin: 0 0 10px 0;"><strong>Important Payment Information:</strong></p>
+                    <ul style="margin: 10px 0;">
+                        <li>All deposits are non-refundable once work begins (including planning, design drafts, or development)</li>
+                        <li>Late final payments (14+ days) may incur a $50/week late fee</li>
+                        <li>Final files and website launch happen after full payment is received</li>
+                    </ul>
+                </div>
+
+                <h2>Optional Services</h2>
+
+                <div class="package-box">
+                    <h3>Domain Purchase Setup — $35 one-time fee</h3>
+                    <p>If you'd like us to purchase and set up your domain for you:</p>
+                    <ul>
+                        <li>✓ Domain research and availability check</li>
+                        <li>✓ Purchase processing</li>
+                        <li>✓ DNS configuration and setup</li>
+                        <li>✓ Hosting connection</li>
+                        <li>✓ Account access transfer to you</li>
+                    </ul>
+                    <p><strong>You retain full ownership</strong> of the domain. We'll invoice you for the domain registration cost plus the $35 setup fee before purchase.</p>
+                    <p style="margin-top: 20px;">
+                        <input type="checkbox" class="checkbox"> Yes, purchase my domain for me (Domain cost + $35 setup fee)<br>
+                        <input type="checkbox" class="checkbox"> No, I'll purchase my own domain
+                    </p>
+                </div>
+
+                <div class="package-box">
+                    <h3>Domain Renewal Management Service — $45/year</h3>
+                    <p>We can manage your domain renewal to prevent expiration and downtime:</p>
+                    <ul>
+                        <li>✓ Track domain expiration dates</li>
+                        <li>✓ Send 1-2 email reminders (30 days advance notice)</li>
+                        <li>✓ Process renewals on your behalf with authorization</li>
+                        <li>✓ Act as your single point of contact</li>
+                    </ul>
+                    <p><strong>You retain full domain ownership at all times.</strong></p>
+                    <p style="margin-top: 20px;">
+                        <input type="checkbox" class="checkbox"> Yes, I want Domain Renewal Management ($45/year)<br>
+                        <input type="checkbox" class="checkbox"> No, I'll manage my own domain
+                    </p>
+                </div>
+
+                <div class="package-box">
+                    <h3>Content Migration — Quote Required</h3>
+                    <p>If you have an existing website and want to transfer content:</p>
+                    <ul>
+                        <li>✓ We'll assess the volume and complexity</li>
+                        <li>✓ Quote provided based on your specific needs</li>
+                        <li>✓ Must be requested before project starts</li>
+                    </ul>
+                    <p style="margin-top: 20px;">
+                        <input type="checkbox" class="checkbox"> Yes, I need content migration (custom quote)<br>
+                        <input type="checkbox" class="checkbox"> No, starting fresh
+                    </p>
+                </div>
+
+                <div class="package-box">
+                    <h3>Expedited Delivery — 25% Additional Fee</h3>
+                    <p>Need your website faster than the standard timeline?</p>
+                    <ul>
+                        <li>✓ Rush delivery available (subject to availability)</li>
+                        <li>✓ 25% additional fee applies</li>
+                        <li>✓ Must be agreed upon before work begins</li>
+                    </ul>
+                    <p style="margin-top: 20px;">
+                        <input type="checkbox" class="checkbox"> Yes, I need expedited delivery (+25% of project cost)<br>
+                        <input type="checkbox" class="checkbox"> No, standard timeline works
+                    </p>
+                </div>
+
+                <div class="page-break"></div>
+
+                <h2>Project Timeline</h2>
+                
+                <div style="background: #f8fafc; padding: 25px; border-radius: 8px; border: 2px solid #cbd5e1; margin: 25px 0;">
+                    <p><strong>Estimated Start Date:</strong> _________________________________</p>
+                    <p><strong>Estimated Completion Date:</strong> _________________________________</p>
+                    <p><strong>Launch Date:</strong> _________________________________ (after final payment)</p>
+                    <p><strong>Support Period Ends:</strong> _________________________________ (1-3 months post-launch)</p>
+                </div>
+                
+                <div class="info-box">
+                    <p style="margin: 0;">Note: Timeline may extend if content, feedback, or payment is delayed beyond 30 days. We'll keep you updated every step of the way!</p>
+                </div>
+
+                <h2>Communication & Your Responsibilities</h2>
+                
+                <p><strong>To keep your project on track, you'll need to provide:</strong></p>
+                <ul>
+                    <li>All content (text, images, logos) in final form</li>
+                    <li>Timely feedback (within 5-10 business days)</li>
+                    <li>Access to domains, hosting, and any required platforms</li>
+                    <li>Approval at key milestones</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p style="margin: 0 0 10px 0;"><strong>Our 30-Day Communication Policy:</strong></p>
+                    <p style="margin: 0;">If we don't receive responses or materials within <strong>30 days</strong> after two contact attempts, we reserve the right to pause or terminate the project. All payments for work completed will be retained.</p>
+                    <p style="margin: 10px 0 0 0;"><strong>We want to deliver great results on time — timely communication helps us both succeed!</strong></p>
+                </div>
+
+                <h2>What You Need to Provide</h2>
+                
+                <div class="success-box">
+                    <p style="margin: 0 0 15px 0; font-weight: 600;">Before We Start:</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Content (text for all pages)</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Images/photos (high resolution)</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Logo and brand colors</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Domain name (purchased by you, or request our $35 setup service)</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Hosting account access</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Content from existing site (if applicable - requires migration quote)</p>
+                </div>
+
+                <div class="success-box">
+                    <p style="margin: 0 0 15px 0; font-weight: 600;">During Development:</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Timely feedback (within 5-10 business days)</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Approval at key milestones</p>
+                    <p style="margin: 10px 0;"><input type="checkbox" class="checkbox"> Final approval before launch</p>
+                </div>
+
+                <div class="page-break"></div>
+
+                <h2>Post-Launch Support</h2>
+
+                <div class="success-box">
+                    <p style="margin: 0 0 10px 0; font-weight: 600;">During Support Period (FREE):</p>
+                    <ul style="margin: 10px 0;">
+                        <li>✓ Bug fixes (broken links, display issues, form problems)</li>
+                        <li>✓ Small text updates (phone, hours, typos)</li>
+                        <li>✓ Image swaps (same size)</li>
+                        <li>✓ Minor styling adjustments</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p style="margin: 0 0 10px 0; font-weight: 600;">During Support Period (PAID):</p>
+                    <ul style="margin: 10px 0;">
+                        <li>Medium changes: $150 (new sections, forms)</li>
+                        <li>Large changes: $300+ (new pages, features)</li>
+                    </ul>
+                </div>
+
+                <h3>After Support Period</h3>
+
+                <div class="info-box">
+                    <p style="margin: 0 0 10px 0; font-weight: 600;">OPTION 1 — Pay Per Change (Default):</p>
+                    <ul style="margin: 10px 0;">
+                        <li>Small changes: $50 each</li>
+                        <li>Medium changes: $150 each</li>
+                        <li>Large changes: $300+ each</li>
+                        <li>No monthly commitment required</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <p style="margin: 0 0 10px 0; font-weight: 600;">OPTION 2 — Monthly Retainer (Optional):</p>
+                    <ul style="margin: 10px 0;">
+                        <li>$150/month</li>
+                        <li>Includes 3 small changes per month</li>
+                        <li>Priority 24-hour response time</li>
+                        <li>Monthly website health check</li>
+                        <li>Medium/large changes billed separately</li>
+                        <li>Cancel anytime with 30 days notice</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <p style="margin: 0;">We'll email you 2 weeks before support ends to discuss your options. If we don't hear back within 14 days, you'll automatically default to pay-per-change pricing.</p>
+                </div>
+
+                <h2>What Happens Next</h2>
+                
+                <ol class="steps">
+                    <li>Review and sign the full Web Development Agreement</li>
+                    <li>Send deposit payment ($________) via [PayPal/Bank/CashApp]</li>
+                    <li>Provide all required content and materials</li>
+                    <li>We begin work within 2 business days of deposit</li>
+                    <li>Regular progress updates throughout development</li>
+                    <li>Review and approve completed website</li>
+                    <li>Send final payment ($________)</li>
+                    <li>Website launches and support period begins!</li>
+                </ol>
+
+                <div class="contact-box">
+                    <h2 style="margin-top: 0; color: #0d9488; border: none;">Contact Information</h2>
+                    <p><strong>WisdomLayers</strong><br>
+                    332 W Summerchase Dr<br>
+                    Fayetteville, NC 28314</p>
+                    <p><strong>Email:</strong> contact@wisdomlayers.com<br>
+                    <strong>Website:</strong> wisdomlayers.com</p>
+                </div>
+
+                <div class="info-box" style="text-align: center;">
+                    <p style="margin: 0; font-size: 1.1em;"><strong>Remember:</strong> This summary is for your convenience only.</p>
+                    <p style="margin: 10px 0 0 0;">The full Web Development Agreement contains the complete and binding terms of our arrangement.</p>
+                </div>
+
+                <div class="highlight-box" style="text-align: center;">
+                    <p style="margin: 0; font-size: 1.1em; font-weight: 600;">Questions?</p>
+                    <p style="margin: 10px 0 0 0;">Contact me anytime! I'm here to make this process smooth and stress-free.</p>
+                </div>
+
+                <div class="signature-section">
+                    <h2 style="margin-top: 0; color: #0d9488;">Client Acknowledgment</h2>
+                    <p>I have received and reviewed this Project Summary and understand that the full Web Development Agreement contains the complete and binding terms of our arrangement.</p>
+                    
+                    <p style="margin-top: 40px;">
+                        <strong>Client Signature:</strong>
+                    </p>
+                    <div class="signature-line"></div>
+                    
+                    <p style="margin-top: 30px;">
+                        <strong>Date:</strong>
+                    </p>
+                    <div class="signature-line"></div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); color: white; border-radius: 12px;">
+                    <p style="margin: 0; font-size: 1.3em; font-weight: 600;">Thank you for choosing WisdomLayers!</p>
+                    <p style="margin: 10px 0 0 0; font-size: 1.05em; opacity: 0.95;">I'm excited to build something amazing for you.</p>
+                </div>
+
+                <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #e2e8f0; text-align: center; color: #64748b;">
+                    <p style="margin: 0; font-size: 0.9em;">WisdomLayers Project Summary</p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em;">Version 2.0 | November 2025</p>
+                    <p style="margin: 15px 0 0 0; font-size: 0.85em;">332 W Summerchase Dr, Fayetteville, NC 28314 | contact@wisdomlayers.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
